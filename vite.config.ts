@@ -64,9 +64,9 @@ function silencePostCSSFromWarning() {
 
 export default defineConfig({
   plugins: [
-    silencePostCSSFromWarning(),
     react(),
     runtimeErrorOverlay(),
+    // removed temporary silencePostCSSFromWarning plugin (diagnostic only)
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
       ? [
