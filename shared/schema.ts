@@ -30,16 +30,11 @@ export const categoriesRelations = relations(categories, ({ many }) => ({
   tasks: many(tasks),
 }));
 
-export const insertCategorySchema = createInsertSchema(categories).omit({
-  id: true,
-});
+export const insertCategorySchema = createInsertSchema(categories);
 
 export const insertTaskSchema = createInsertSchema(tasks, {
   description: z.string().optional(),
   categoryId: z.number().optional(),
-}).omit({
-  id: true,
-  createdAt: true,
 });
 
 export type Category = typeof categories.$inferSelect;

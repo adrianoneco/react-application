@@ -167,11 +167,20 @@
 
 @layer base {
   * {
-    @apply border-border;
+    /* Tailwind v3.5+ may not generate `border-border` in some setups;
+       set the border color directly from the CSS variable instead. */
+    border-color: hsl(var(--border) / 1);
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    /* Replace `@apply font-sans antialiased bg-background text-foreground`
+       with equivalent CSS to avoid @apply ordering issues with the PostCSS
+       adapter and Tailwind during build. */
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: hsl(var(--background) / 1);
+    color: hsl(var(--foreground) / 1);
   }
 }
 

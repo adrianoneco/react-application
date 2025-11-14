@@ -90,6 +90,6 @@ app.use((req, res, next) => {
   }
 
   server.listen(listenOptions, () => {
-    log(`serving on port ${port}`);
+    log(`serving on http://127.0.0.1:${port}`);
   });
 })();
