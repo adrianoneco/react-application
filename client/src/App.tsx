@@ -6,16 +6,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeToggle } from "@/components/theme-toggle";
-import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
+import Dashboard from "./pages/Dashboard";
 
-import Landing from "@/pages/landing";
 
 function Router() {
   return (
     <Switch>
-      <Route path="/app" component={Home} />
-      <Route path="/" component={Landing} />
+      <Route path="/" component={Dashboard} />
       <Route component={NotFound} />
     </Switch>
   );
